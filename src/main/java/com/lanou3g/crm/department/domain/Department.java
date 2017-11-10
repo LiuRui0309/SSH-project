@@ -10,7 +10,7 @@ import java.util.Set;
  */
 public class Department
 {
-    private int depId;
+    private String depId;
     private String depName;
 
     private Set<Post> posts = new HashSet<>();
@@ -23,11 +23,11 @@ public class Department
         this.posts = posts;
     }
 
-    public int getDepId() {
+    public String getDepId() {
         return depId;
     }
 
-    public void setDepId(int depId) {
+    public void setDepId(String depId) {
         this.depId = depId;
     }
 

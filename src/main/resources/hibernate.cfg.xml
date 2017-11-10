@@ -10,7 +10,7 @@
             org.hibernate.dialect.MySQL5Dialect
         </property>
         <!-- DB schema will be updated if needed -->
-        <property name="hibernate.hbm2ddl.auto">create</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
         <mapping resource="com/lanou3g/crm/staff/domain/Staff.hbm.xml"/>
         <mapping resource="com/lanou3g/crm/post/domain/Post.hbm.xml"/>
         <mapping resource="com/lanou3g/crm/department/domain/Department.hbm.xml"/>

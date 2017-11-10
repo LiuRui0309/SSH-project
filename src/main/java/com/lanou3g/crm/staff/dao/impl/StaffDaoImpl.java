@@ -12,7 +12,6 @@ import java.util.List;
 /**
  * Created by dllo on 17/11/9.
  */
-@Repository("staffDao")
 public class StaffDaoImpl extends HibernateDaoSupport implements StaffDao {
 
     @Override
@@ -22,7 +21,8 @@ public class StaffDaoImpl extends HibernateDaoSupport implements StaffDao {
     }
 
     @Override
-    public boolean delete(Staff staff) {
+    public boolean delete(String staffId) {
+        getHibernateTemplate().delete(staffId);
         return false;
     }
 
@@ -43,11 +43,18 @@ public class StaffDaoImpl extends HibernateDaoSupport implements StaffDao {
 
     @Override
     public List<Staff> findAll() {
+        List<Staff> staffs = (List<Staff>) getHibernateTemplate().find("from Staff T_STAFF");
+        return staffs;
+    }
+
+
+    @Override
+    public Staff findById(Staff staff) {
         return null;
     }
 
     @Override
-    public List<Staff> findAll(String condition, Object... params) {
-        return null;
+    public List<Staff> queryStaff(Staff staff) {
+        return getHibernateTemplate().findByExample(staff);
     }
 }

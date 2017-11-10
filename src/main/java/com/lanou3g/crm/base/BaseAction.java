@@ -27,6 +27,7 @@ public class BaseAction<T,S> extends ActionSupport implements ModelDriven<T>{
 
     protected T model;
     protected S service;
+    private static String LOGIN_KEY = "key_uuid";
     public BaseAction() {
         //获取当前类的class
         Class<? extends BaseAction> clazz = getClass();
@@ -72,10 +73,7 @@ public class BaseAction<T,S> extends ActionSupport implements ModelDriven<T>{
         return ServletActionContext.getResponse();
     }
 
-
     public void setService(S service) {
         this.service = service;
     }
-
-
 }

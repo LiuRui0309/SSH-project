@@ -10,7 +10,7 @@ import java.util.Set;
  * Created by dllo on 17/11/9.
  */
 public class Post {
-    private int postId;
+    private String postId;
     private String postName;
 
     private Department department;
@@ -33,11 +33,11 @@ public class Post {
         this.staffs = staffs;
     }
 
-    public int getPostId() {
+    public String getPostId() {
         return postId;
     }
 
-    public void setPostId(int postId) {
+    public void setPostId(String postId) {
         this.postId = postId;
     }
 

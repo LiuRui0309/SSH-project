@@ -5,7 +5,7 @@
 <hibernate-mapping >
     <class name="com.lanou3g.crm.post.domain.Post" table="T_POST">
         <id name="postId" column="POST_ID">
-            <generator class="native"/>
+            <generator class="uuid"/>
         </id>
         <property name="postName"/>
 

@@ -15,6 +15,18 @@ public class Staff {
     
     private Post post;
 
+    @Override
+    public String toString() {
+        return "Staff{" +
+                "staffId='" + staffId + '\'' +
+                ", loginName='" + loginName + '\'' +
+                ", loginPwd='" + loginPwd + '\'' +
+                ", StaffName='" + StaffName + '\'' +
+                ", gender='" + gender + '\'' +
+                ", onDutyDate='" + onDutyDate + '\'' +
+                '}';
+    }
+
     public Post getPost() {
         return post;
     }

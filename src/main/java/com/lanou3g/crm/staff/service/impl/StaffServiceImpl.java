@@ -20,16 +20,33 @@ public class StaffServiceImpl implements StaffService {
 
 
     @Override
-    public void login(Staff staff) {
-//        staffDao.save(staff);
-    }
-    @Override
-    public boolean save(Staff staff) {
-        return false;
+    public Staff login(Staff staff) {
+        List<Staff> staffs = staffDao.queryStaff(staff);
+        if (staffs.size()!=0){
+            return staff;
+        }else {
+            return null;
+        }
     }
 
     @Override
-    public boolean delete(Staff staff) {
+    public List<Staff> findAll() {
+        return null;
+    }
+
+    @Override
+    public boolean save(Staff staff) {
+        List<Staff> staffs = staffDao.queryStaff(staff);
+        if (staffs.size()!=0){
+            return false;
+        }else {
+            staffDao.save(staff);
+            return true;
+        }
+    }
+
+    @Override
+    public boolean delete(String staffId) {
         return false;
     }
 
@@ -45,16 +62,6 @@ public class StaffServiceImpl implements StaffService {
 
     @Override
     public Staff findById(Serializable id) {
-        return null;
-    }
-
-    @Override
-    public List<Staff> findAll() {
-        return null;
-    }
-
-    @Override
-    public List<Staff> findAll(String condition, Object... params) {
         return null;
     }
 

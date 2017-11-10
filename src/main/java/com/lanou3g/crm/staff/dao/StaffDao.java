@@ -10,4 +10,6 @@ import java.util.List;
  */
 public interface StaffDao extends BaseDao<Staff> {
 
+    Staff findById(Staff staff);
+    List<Staff> queryStaff(Staff staff);
 }
