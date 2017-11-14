@@ -12,13 +12,16 @@ import java.util.List;
 /**
  * Created by dllo on 17/11/9.
  */
-@Service("staffService")
 public class StaffServiceImpl implements StaffService {
 
-    @Resource
     private StaffDao staffDao;
 
-
+    /**
+     * 判断登录
+     * 当输入的登录信息存在 可以登录
+     * @param staff
+     * @return
+     */
     @Override
     public Staff login(Staff staff) {
         List<Staff> staffs = staffDao.queryStaff(staff);
@@ -29,11 +32,21 @@ public class StaffServiceImpl implements StaffService {
         }
     }
 
+    /**
+     * 用来接收dao层的查询结果
+     * @return
+     */
     @Override
     public List<Staff> findAll() {
-        return null;
+        return staffDao.findAll();
     }
 
+    /**
+     * 添加员工 判断添加的员工是否存在
+     * 若存在 则添加失败
+     * @param staff
+     * @return
+     */
     @Override
     public boolean save(Staff staff) {
         List<Staff> staffs = staffDao.queryStaff(staff);
@@ -61,9 +74,12 @@ public class StaffServiceImpl implements StaffService {
     }
 
     @Override
-    public Staff findById(Serializable id) {
+    public Staff findById(Staff staff) {
         return null;
     }
 
 
+    public void setStaffDao(StaffDao staffDao) {
+        this.staffDao = staffDao;
+    }
 }

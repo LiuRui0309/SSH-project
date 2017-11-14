@@ -17,6 +17,15 @@ public class Post {
 
     private Set<Staff> staffs = new HashSet<>();
 
+
+    @Override
+    public String toString() {
+        return "Post{" +
+                "postId='" + postId + '\'' +
+                ", postName='" + postName + '\'' +
+                '}';
+    }
+
     public Set<Staff> getStaffs() {
         return staffs;
     }

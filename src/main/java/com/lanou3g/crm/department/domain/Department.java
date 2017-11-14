@@ -13,7 +13,17 @@ public class Department
     private String depId;
     private String depName;
 
+
+
     private Set<Post> posts = new HashSet<>();
+
+    @Override
+    public String toString() {
+        return "Department{" +
+                "depId='" + depId + '\'' +
+                ", depName='" + depName + '\'' +
+                '}';
+    }
 
     public Set<Post> getPosts() {
         return posts;

@@ -42,7 +42,7 @@
     <aop:config>
         <!--声明切点-->
         <aop:pointcut id="staffPointCut"
-                      expression="execution(* com.lanou3g.crm.staff.dao.impl.*.*(..))"/>
+                      expression="execution(* com.lanou3g.crm.*.dao.impl.*.*(..))"/>
         <aop:advisor advice-ref="staffAdvisor" pointcut-ref="staffPointCut"/>
     </aop:config>
 </beans>

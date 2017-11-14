@@ -13,7 +13,10 @@
         <property name="gender"/>
         <property name="onDutyDate"/>
 
-        <many-to-one name="post" column="POST_ID" class="com.lanou3g.crm.post.domain.Post" cascade="save-update"/>
+        <many-to-one name="post"
+                     column="POST_ID"
+                     class="com.lanou3g.crm.post.domain.Post"
+                     cascade="save-update"/>
 
     </class>
 </hibernate-mapping>

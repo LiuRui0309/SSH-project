@@ -10,18 +10,20 @@
           <root url="file://$MODULE_DIR$/src/main/webapp" relative="/" />
         </webroots>
         <sourceRoots>
-          <root url="file://$MODULE_DIR$/src/main/java" />
           <root url="file://$MODULE_DIR$/src/main/resources" />
+          <root url="file://$MODULE_DIR$/src/main/java" />
         </sourceRoots>
       </configuration>
       <facet type="Struts2" name="Struts 2">
         <configuration>
           <fileset id="s2fileset" name="My Fileset " removed="false">
+            <file>file://$MODULE_DIR$/src/main/resources/struts/struts-staff.xml</file>
+            <file>file://$MODULE_DIR$/src/main/resources/struts.xml</file>
             <file>jar://$MAVEN_REPOSITORY$/org/apache/struts/struts2-core/2.5.13/struts2-core-2.5.13.jar!/struts-default.xml</file>
             <file>jar://$MAVEN_REPOSITORY$/org/apache/struts/struts2-json-plugin/2.5.13/struts2-json-plugin-2.5.13.jar!/struts-plugin.xml</file>
             <file>jar://$MAVEN_REPOSITORY$/org/apache/struts/struts2-spring-plugin/2.5.13/struts2-spring-plugin-2.5.13.jar!/struts-plugin.xml</file>
-            <file>file://$MODULE_DIR$/src/main/resources/struts.xml</file>
-            <file>file://$MODULE_DIR$/src/main/resources/struts/struts-staff.xml</file>
+            <file>file://$MODULE_DIR$/src/main/resources/struts/struts-dept.xml</file>
+            <file>file://$MODULE_DIR$/src/main/resources/struts/struts-post.xml</file>
           </fileset>
           <propertiesKeys disabled="false" />
         </configuration>
@@ -32,6 +34,9 @@
         <fileset id="fileset" name="Spring Application Context" removed="false">
           <file>file://$MODULE_DIR$/src/main/resources/spring-config.xml</file>
           <file>file://$MODULE_DIR$/src/main/resources/spring/spring-staff.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/spring/spring-config.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/spring/spring-dept.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/spring/spring-post.xml</file>
         </fileset>
       </configuration>
     </facet>

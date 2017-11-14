@@ -32,3 +32,4 @@ hs_err_pid*
 src/main/java/com/lanou3g/crm/util/
 src/main/webapp/WEB-INF/upload/
 target/
+src/test/

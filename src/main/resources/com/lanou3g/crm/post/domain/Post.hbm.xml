@@ -11,8 +11,7 @@
 
         <many-to-one name="department"
                      class="com.lanou3g.crm.department.domain.Department"
-                     column="DEPT_ID"
-                     cascade="save-update"/>
+                     column="DEPT_ID" lazy="false" />
 
         <set name="staffs" table="T_STAFF"
              cascade="save-update" inverse="true">

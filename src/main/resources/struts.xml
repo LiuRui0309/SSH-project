@@ -4,5 +4,12 @@
         "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
         "http://struts.apache.org/dtds/struts-2.5.dtd">
 <struts>
+    <!--设置为开发模式,log日志会多一些-->
+    <constant name="struts.devMode" value="true"/>
+    <!--让spring管理action对象的创建-->
+    <!--当然,这个配置可以不写,因为在struts2-spring-plugin里面已经有了-->
+    <constant name="struts.objectFactory" value="spring"/>
     <include file="struts/struts-staff.xml"/>
+    <include file="struts/struts-dept.xml"/>
+    <include file="struts/struts-post.xml"/>
 </struts>

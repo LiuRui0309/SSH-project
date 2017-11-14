@@ -85,15 +85,15 @@
         <td width="10%" align="center">编辑</td>
     </tr>
 
-
-    <s:iterator value="#staffList" status="sl">
-        <tr class="<s:property value="#sl.even ? 'tabtd2':'table1'" />">
+    <s:iterator value="staffs">
+        <tr class="table">
             <td align="center"><s:property value="staffName"/></td>
             <td align="center"><s:property value="gender"/></td>
             <td align="center"><s:property value="onDutyDate"/></td>
             <td align="center"><s:property value="post.department.depName"/></td>
             <td align="center"><s:property value="post.postName"/></td>
             <td width="7%" align="center">
+                    <%--之后编辑放开--%>
                 <s:a namespace="/" action="staffAction_editStaffPre">
                     <s:param name="staffId" value="staffId"/>
                     <img src="${pageContext.request.contextPath}/images/button/modify.gif" class="img"/></a>
@@ -101,21 +101,6 @@
             </td>
         </tr>
     </s:iterator>
-
-    <%--<tr class="tabtd1"> --%>
-    <%--<td align="center">管理员</td>--%>
-    <%--<td align="center"></td>--%>
-    <%--<td align="center"></td>--%>
-    <%--<td align="center"></td>--%>
-    <%--<td align="center"></td>--%>
-    <%--<td width="7%" align="center">--%>
-    <%----%>
-    <%--<a href="${pageContext.request.contextPath}/pages/staff/editStaff.jsp">--%>
-    <%--<img src="${pageContext.request.contextPath}/images/button/modify.gif" class="img" /></a>--%>
-    <%--</td>--%>
-    <%----%>
-    <%--</tr>--%>
-
 
 </table>
 

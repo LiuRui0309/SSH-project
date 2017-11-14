@@ -16,7 +16,7 @@ public interface BaseDao<T> {
     //保存更新
     boolean saveOrUpdate(T t);
     //通过id查询
-    T findById(Serializable id);
+    T findById(T t);
     //查询所有
     List<T> findAll();
 }

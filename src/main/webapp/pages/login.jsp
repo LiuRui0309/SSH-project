@@ -49,12 +49,13 @@ FONT-SIZE: 12px; COLOR: #4b4b4b; LINE-HEIGHT: 18px; TEXT-DECORATION: none
 					<br/>
 					<font color="#ff0000">
 						<s:fielderror/>
+						<%--<s:actionerror/>--%>
 					</font> 
 					<br/>
-					用户名：<input type="text" name="loginName" class="msg" /><br/><br/>
-					<%--<s:fielderror fieldName="loginName" />--%>
-					密&nbsp;码：<input type="password" name="loginPwd" class="msg" /><br/><br/>
-					<%--<s:fielderror fieldName="loginPwd" />--%>
+					用户名：<input type="text" name="loginName" class="msg" value="zw" /><br/><br/>
+					<s:fielderror fieldName="loginName" />
+					密&nbsp;码：<input type="password" name="loginPwd" class="msg" value="123"/><br/><br/>
+					<s:fielderror fieldName="loginPwd" />
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					<input type="submit" class="btn" value="登录 " />
 					

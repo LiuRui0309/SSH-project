@@ -4,20 +4,42 @@
         "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
         "http://struts.apache.org/dtds/struts-2.5.dtd">
 <struts>
-    <!--设置为开发模式,log日志会多一些-->
-    <constant name="struts.devMode" value="true"/>
-    <!--让spring管理action对象的创建-->
-    <!--当然,这个配置可以不写,因为在struts2-spring-plugin里面已经有了-->
-    <constant name="struts.objectFactory" value="spring"/>
+
     <package name="staff" extends="json-default" namespace="/staff">
+        <interceptors>
+            <interceptor name="loginInterceptor" class="com.lanou3g.crm.staff.web.interceptor.LoginInterceptor">
+                <param name="excludeMethods">login</param>
+            </interceptor>
+            <interceptor-stack name="myInterceptor">
+                <interceptor-ref name="defaultStack"/>
+                <interceptor-ref name="loginInterceptor"/>
+            </interceptor-stack>
+        </interceptors>
+        <default-interceptor-ref name="myInterceptor"/>
+
+        <!--登录-->
         <action name="staffAction_login" class="staffAction"
                 method="login">
-            <result name="success">/pages/frame.jsp</result>
+            <result name="success" type="chain">staffAction_home</result>
             <result name="input">/pages/login.jsp</result>
         </action>
-        <action name="addStaff" class="staffAction" method="addStaff">
+
+        <!--查询全部员工-->
+        <action name="staffAction_findAll" class="staffAction" method="findAllStaffs">
             <result name="success">/pages/staff/listStaff.jsp</result>
+        </action>
+
+        <!--添加员工-->
+        <action name="staffAction_addStaff" class="staffAction" method="addStaff">
+            <result name="success" type="redirectAction">staffAction_findAll</result>
             <result name="input">/pages/staff/addStaff.jsp</result>
         </action>
+
+        <!---->
+        <action name="staffAction_home" class="staffAction" method="home">
+            <result name="home">/pages/frame.jsp</result>
+        </action>
+
+
     </package>
 </struts>

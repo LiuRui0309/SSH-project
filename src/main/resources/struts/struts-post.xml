@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <package name="post" extends="json-default" namespace="/post">
+
+        <!--查询全部数据-->
+        <action name="postAction_findAll" class="postAction" method="findAllPost">
+            <result name="success">/pages/post/listPost.jsp</result>
+        </action>
+
+
+        <action name="postAction_addOrEditPre" class="postAction" method="addOrEditPostPre">
+            <result name="success">/pages/post/addOrEditPost.jsp</result>
+        </action>
+
+        <action name="postAction_addOrEdit" class="postAction" method="addOrEditPost">
+            <result name="success" type="redirectAction">postAction_findAll</result>
+        </action>
+    </package>
+</struts>

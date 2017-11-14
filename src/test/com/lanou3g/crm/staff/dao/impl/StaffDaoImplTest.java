@@ -10,12 +10,13 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * Created by dllo on 17/11/9.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("classpath:spring/spring-config.xml")
+@ContextConfiguration("classpath:spring/*.xml")
 public class StaffDaoImplTest {
     @Resource
     private StaffDao staffDao;
@@ -37,6 +38,7 @@ public class StaffDaoImplTest {
 
     @Test
     public void findAll() {
-        staffDao.findAll();
+        List<Staff> staffList = staffDao.findAll();
+        System.out.println(staffList);
     }
 }

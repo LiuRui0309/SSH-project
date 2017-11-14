@@ -13,12 +13,39 @@ import java.util.List;
  * Created by dllo on 17/11/9.
  */
 public class StaffDaoImpl extends HibernateDaoSupport implements StaffDao {
-
+    /**
+     * 添加员工
+     * @param staff
+     * @return
+     */
     @Override
     public boolean save(Staff staff) {
         getHibernateTemplate().save(staff);
         return true;
     }
+
+    /**
+     * 查询所有员工
+     * @return
+     */
+    @Override
+    public List<Staff> findAll() {
+        return (List<Staff>) getHibernateTemplate().find("from Staff T_STAFF");
+    }
+
+    /**
+     * 按员工的属性查询所有满足条件的所有员工
+     * @param staff
+     * @return
+     */
+    @Override
+    public List<Staff> queryStaff(Staff staff) {
+        return getHibernateTemplate().findByExample(staff);
+    }
+
+
+
+
 
     @Override
     public boolean delete(String staffId) {
@@ -37,24 +64,10 @@ public class StaffDaoImpl extends HibernateDaoSupport implements StaffDao {
     }
 
     @Override
-    public Staff findById(Serializable id) {
-        return null;
-    }
-
-    @Override
-    public List<Staff> findAll() {
-        List<Staff> staffs = (List<Staff>) getHibernateTemplate().find("from Staff T_STAFF");
-        return staffs;
-    }
-
-
-    @Override
     public Staff findById(Staff staff) {
         return null;
     }
 
-    @Override
-    public List<Staff> queryStaff(Staff staff) {
-        return getHibernateTemplate().findByExample(staff);
-    }
+
+
 }
