@@ -10,6 +10,20 @@
     <link href="${pageContext.request.contextPath}/css/sys.css" type="text/css" rel="stylesheet"/>
 </head>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <body>
 <table border="0" cellspacing="0" cellpadding="0" width="100%">
     <tr>
@@ -27,7 +41,7 @@
             <a href="javascript:void(0)" onclick="condition()">
                 <img src="${pageContext.request.contextPath}/images/button/gaojichaxun.gif"/></a>
             <%--员工注入 --%>
-            <a href="${pageContext.request.contextPath}/pages/staff/addStaff.jsp">
+            <a href="/staff/staffAction_addStaffPre.action">
                 <img src="${pageContext.request.contextPath}/images/button/tianjia.gif"/>
             </a>
 
@@ -94,8 +108,9 @@
             <td align="center"><s:property value="post.postName"/></td>
             <td width="7%" align="center">
                     <%--之后编辑放开--%>
-                <s:a namespace="/" action="staffAction_editStaffPre">
+                <s:a namespace="/staff" action="staffAction_editStaffPre">
                     <s:param name="staffId" value="staffId"/>
+                    <s:param name="postId" value="post.postId"/>
                     <img src="${pageContext.request.contextPath}/images/button/modify.gif" class="img"/></a>
                 </s:a>
             </td>
