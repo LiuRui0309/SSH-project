@@ -1,5 +1,6 @@
 package com.lanou3g.crm.post.dao.impl;
 
+import com.lanou3g.crm.department.domain.Department;
 import com.lanou3g.crm.post.dao.PostDao;
 import com.lanou3g.crm.post.domain.Post;
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
@@ -32,7 +33,7 @@ public class PostDaoImpl extends HibernateDaoSupport implements PostDao {
     //通过id查询
     @Override
     public Post findById(Post post) {
-       return getHibernateTemplate().get(Post.class,post.getPostId());
+        return getHibernateTemplate().get(Post.class, post.getPostId());
     }
 
 
@@ -47,7 +48,11 @@ public class PostDaoImpl extends HibernateDaoSupport implements PostDao {
     }
 
 
-
-
-
+    //根据部门Id查询职位的集合
+    @Override
+    public List<Post> getPostByDepId(String depId) {
+        String sql = "from Post T_POST where department.depId =?";
+        List<Post> posts = (List<Post>) getHibernateTemplate().find(sql, depId);
+        return posts;
+    }
 }

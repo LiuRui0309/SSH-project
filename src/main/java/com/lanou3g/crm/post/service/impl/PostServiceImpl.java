@@ -35,6 +35,15 @@ public class PostServiceImpl implements PostService {
        return postDao.findById(post);
     }
 
+    /**
+     * 根据部门Id查询全部
+     * @param depId
+     * @return
+     */
+    @Override
+    public List<Post> getPostByDepId(String depId) {
+        return postDao.getPostByDepId(depId);
+    }
 
     @Override
     public boolean save(Post post) {
@@ -50,7 +59,6 @@ public class PostServiceImpl implements PostService {
     public boolean update(Post post) {
         return false;
     }
-
 
 
 

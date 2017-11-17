@@ -3,20 +3,20 @@
 <!DOCTYPE struts PUBLIC
         "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
         "http://struts.apache.org/dtds/struts-2.5.dtd">
-
 <struts>
-    <package name="post" extends="json-default" namespace="/post">
+    <package name="post" extends="base" namespace="/post">
 
         <!--查询全部数据-->
         <action name="postAction_findAll" class="postAction" method="findAllPost">
             <result name="success">/pages/post/listPost.jsp</result>
         </action>
 
-
+        <!--编辑之前查询所有部门-->
         <action name="postAction_addOrEditPre" class="postAction" method="addOrEditPostPre">
             <result name="success">/pages/post/addOrEditPost.jsp</result>
         </action>
 
+        <!--编辑之后跳转到查询所有部门的界面-->
         <action name="postAction_addOrEdit" class="postAction" method="addOrEditPost">
             <result name="success" type="redirectAction">postAction_findAll</result>
         </action>

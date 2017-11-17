@@ -33,4 +33,8 @@ public class PostDaoImplTest {
         post.setPostId("2c9090fc5fb48497015fb4849b490000");
         postDao.saveOrUpdate(post);
     }
+    @Test
+    public void getPostByDepIdTest(){
+        System.out.println(postDao.getPostByDepId("2c90901b5fa4b01c015fa4b026af0002"));
+    }
 }

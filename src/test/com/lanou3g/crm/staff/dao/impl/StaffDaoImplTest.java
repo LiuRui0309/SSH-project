@@ -41,4 +41,42 @@ public class StaffDaoImplTest {
         List<Staff> staffList = staffDao.findAll();
         System.out.println(staffList);
     }
+
+    @Test
+    public void staffByIdTest(){
+
+        System.out.println(staffDao.staffById("2c90901b5fa4b01c015fa4b026980000"));
+    }
+
+    @Test
+    public void findStaffsByStaffNameTest(){
+        staffDao.findStaffsByStaffName("韩国进口件");
+    }
+    @Test
+    public void findStaffsByPostIdTest(){
+        staffDao.findStaffsByPostId("2c90901b5fa5b76f015fa5b773fb0001");
+    }
+
+    @Test
+    public void findStaffsByDepIdTest(){
+
+        staffDao.findStaffsByDepId("2c9090fc5fb96df4015fb979915e0000");
+    }
+
+    @Test
+    public void getTotalRecordTest(){
+        System.out.println(staffDao.getTotalRecord());
+    }
+    @Test
+    public void findAllStaffsTest(){
+        System.out.println(staffDao.findAllStaffs(1,2));
+    }
+    @Test
+    public void findStaffByLoginNameAndLoginPwdTest(){
+
+        Staff staff = new Staff();
+        staff.setLoginPwd("123");
+        staff.setLoginName("zw");
+        System.out.println(staffDao.findStaffByLoginNameAndLoginPwd(staff));
+    }
 }

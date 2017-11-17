@@ -1,3 +1,4 @@
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -95,11 +96,13 @@
 	    <td align="center">18000.0</td>
 	  	<td width="11%" align="center">
 	  		
-	  		<a href="${pageContext.request.contextPath}/pages/coursetype/addOrEditCourse.jsp"><img src="${pageContext.request.contextPath}/images/button/modify.gif" class="img" /></a>
+	  		<a href="${pageContext.request.contextPath}/pages/coursetype/addOrEditCourse.jsp">
+				<img src="${pageContext.request.contextPath}/images/button/modify.gif" class="img" /></a>
 	  	</td>
 	  </tr>
 
- 
+
+
 </table>
 <table border="0" cellspacing="0" cellpadding="0" align="center">
   <tr>

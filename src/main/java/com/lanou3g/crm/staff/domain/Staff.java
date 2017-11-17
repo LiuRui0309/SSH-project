@@ -9,7 +9,7 @@ public class Staff {
     private String staffId;
     private String loginName;
     private String loginPwd;
-    private String StaffName;
+    private String staffName;
     private String gender;
     private String onDutyDate;
     
@@ -21,7 +21,7 @@ public class Staff {
                 "staffId='" + staffId + '\'' +
                 ", loginName='" + loginName + '\'' +
                 ", loginPwd='" + loginPwd + '\'' +
-                ", StaffName='" + StaffName + '\'' +
+                ", staffName='" + staffName + '\'' +
                 ", gender='" + gender + '\'' +
                 ", onDutyDate='" + onDutyDate + '\'' +
                 '}';
@@ -60,11 +60,11 @@ public class Staff {
     }
 
     public String getStaffName() {
-        return StaffName;
+        return staffName;
     }
 
     public void setStaffName(String staffName) {
-        StaffName = staffName;
+        this.staffName = staffName;
     }
 
     public String getGender() {

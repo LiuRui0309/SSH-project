@@ -42,7 +42,7 @@
 			</tr>
 			<tr>
 				<td>原始密码：</td>
-				<td><input type="password" name="oldPassword" value="" /></td>
+				<td><input type="password" name="oldPassword" value="${staff1.loginPwd}"/></td>
 			</tr>
 			<tr>
 				<td>新&nbsp;密&nbsp;码：</td>

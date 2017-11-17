@@ -3,6 +3,7 @@ package com.lanou3g.crm.department.service.impl;
 import com.lanou3g.crm.department.dao.DepartmentDao;
 import com.lanou3g.crm.department.domain.Department;
 import com.lanou3g.crm.department.service.DepartmentService;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -22,7 +23,7 @@ public class DepartmentServiceImpl implements DepartmentService {
     //添加或更新
     @Override
     public boolean saveOrUpdate(Department department) {
-        if (!department.getDepName().trim().equals("")){
+        if (!StringUtils.isBlank(department.getDepName())){
             departmentDao.saveOrUpdate(department);
             return true;
         }

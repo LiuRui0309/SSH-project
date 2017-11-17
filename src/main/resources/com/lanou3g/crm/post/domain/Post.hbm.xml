@@ -14,9 +14,9 @@
                      column="DEPT_ID" lazy="false" />
 
         <set name="staffs" table="T_STAFF"
-             cascade="save-update" inverse="true">
+           lazy="false" >
             <key column="POST_ID"/>
-            <one-to-many class="com.lanou3g.crm.staff.domain.Staff"/>
+            <one-to-many class="com.lanou3g.crm.staff.domain.Staff" />
         </set>
     </class>
 </hibernate-mapping>

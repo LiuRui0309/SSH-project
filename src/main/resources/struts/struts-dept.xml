@@ -5,7 +5,7 @@
         "http://struts.apache.org/dtds/struts-2.5.dtd">
 
 <struts>
-    <package name="dept" extends="json-default" namespace="/dept">
+    <package name="dept" extends="base" namespace="/dept">
 
         <!--查询所有部门-->
         <action name="deptAction_findAll" class="departmentAction" method="findAllDepts">
@@ -20,7 +20,6 @@
         <!--添加和更新部门-->
         <action name="departmentAction_addOrEdit" class="departmentAction" method="addOrEdit">
             <result name="success" type="redirectAction">deptAction_findAll</result>
-            <result name="input">/pages/department/addOrEditDepartment.jsp</result>
         </action>
 
     </package>

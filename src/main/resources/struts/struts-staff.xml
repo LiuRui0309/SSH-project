@@ -5,23 +5,11 @@
         "http://struts.apache.org/dtds/struts-2.5.dtd">
 <struts>
 
-    <package name="staff" extends="json-default" namespace="/staff">
-        <interceptors>
-            <interceptor name="loginInterceptor" class="com.lanou3g.crm.staff.web.interceptor.LoginInterceptor">
-                <param name="excludeMethods">login</param>
-            </interceptor>
-            <interceptor-stack name="myInterceptor">
-                <interceptor-ref name="defaultStack"/>
-                <interceptor-ref name="loginInterceptor"/>
-            </interceptor-stack>
-        </interceptors>
-        <default-interceptor-ref name="myInterceptor"/>
+    <package name="staff" extends="base" namespace="/staff">
 
         <!--登录-->
-        <action name="staffAction_login" class="staffAction"
-                method="login">
-            <result name="success" type="chain">staffAction_home</result>
-            <result name="input">/pages/login.jsp</result>
+        <action name="staffAction_login" class="staffAction" method="login">
+            <result name="success">/pages/frame.jsp</result>
         </action>
 
         <!--查询全部员工-->
@@ -32,14 +20,34 @@
         <!--添加员工-->
         <action name="staffAction_addStaff" class="staffAction" method="addStaff">
             <result name="success" type="redirectAction">staffAction_findAll</result>
-            <result name="input">/pages/staff/addStaff.jsp</result>
         </action>
 
-        <!---->
-        <action name="staffAction_home" class="staffAction" method="home">
-            <result name="home">/pages/frame.jsp</result>
+        <!--添加员工之前先查询部门-->
+        <action name="staffAction_addStaffPre" class="staffAction" method="addStaffPre">
+            <result name="success">/pages/staff/addStaff.jsp</result>
         </action>
 
+        <!--根据部门Id查询职位-->
+        <action name="getPostByDepId" class="staffAction" method="getPostByDepId">
+            <result name="success" type="json">
+                <param name="root">posts</param>
+                <param name="includeProperties">\[\d\]\.postId,\[\d\]\.postName</param>
+            </result>
+        </action>
 
+        <!--编辑前按员工Id查询信息-->
+        <action name="staffAction_editStaffPre" class="staffAction" method="editStaffPre">
+            <result name="success">/pages/staff/editStaff.jsp</result>
+        </action>
+
+        <!--编辑员工-->
+        <action name="staffAction_edit" class="staffAction" method="editStaff">
+            <result name="success" type="redirectAction">staffAction_findAll</result>
+        </action>
+
+        <!--分页的动作跳转-->
+        <action name="staffAction_findAllStaffs" class="staffAction" method="findAll">
+            <result name="findAll">/pages/staff/listStaff.jsp</result>
+        </action>
     </package>
 </struts>

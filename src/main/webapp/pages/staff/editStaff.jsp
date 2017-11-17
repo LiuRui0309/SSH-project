@@ -1,4 +1,5 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -101,10 +102,18 @@
             <td><input type="text" name="staffName" value="${staff1.staffName}"/></td>
             <td>性别：</td>
             <td>
-                <input type="radio" name="gender" checked="checked" value="男"/>男
-                <input type="radio" name="gender" value="女"/>女
-                <%--<s:radio list="{'男','女'}" name="gender" value="%{#staff1.gender}"/>--%>
+                <%--<input type="radio" name="gender" checked="checked" value="男"/>男--%>
+                <%--<input type="radio" name="gender" value="女"/>女--%>
 
+                <c:if test="${staff1.gender=='男'}">
+                    <input type="radio" name="gender" checked="checked" value="男"/>男
+                    <input type="radio" name="gender" value="女"/>女
+                </c:if>
+
+                <c:if test="${staff1.gender=='女'}">
+                    <input type="radio" name="gender" value="男"/>男
+                    <input type="radio" name="gender" checked="checked" value="女"/>女
+                </c:if>
             </td>
         </tr>
         <tr>

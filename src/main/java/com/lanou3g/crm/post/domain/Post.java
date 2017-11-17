@@ -17,6 +17,12 @@ public class Post {
 
     private Set<Staff> staffs = new HashSet<>();
 
+    public Post() {
+    }
+
+    public Post(String postId) {
+        this.postId = postId;
+    }
 
     @Override
     public String toString() {

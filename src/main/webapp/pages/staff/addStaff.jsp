@@ -8,7 +8,7 @@
     <link href="${pageContext.request.contextPath}/css/sys.css" type="text/css" rel="stylesheet"/>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/Calendar.js"></script>
     <script>
-        function onChange(value) {
+        function onDeptSelected(value) {
 //            输出value的值
             console.log(value)
             //根据value的值发送请求.
@@ -26,36 +26,32 @@
                     //对请求回来的数据进行解析
                     json = eval('(' + this.responseText + ')');
                     //获取服务器的标签
-                    serverSelect = document.getElementById("postSelectId");
+                    postSelect = document.getElementById("postSelectId");
                     //获取option标签
-                    optionEle = serverSelect.getElementsByTagName("option");
+                    optionEle = postSelect.getElementsByTagName("option");
                     //获取option的数量
                     length = optionEle.length;
                     //使用循环清空所有的option标签
                     for (var i = 0; i < length; i++) {
-                        serverSelect.removeChild(optionEle[0]);
+                        postSelect.removeChild(optionEle[0]);
                     }
-                    serverSelect.innerHTML = "<option value = '-1'>--选择服务器--</option>";
+                    postSelect.innerHTML = "<option value = '-1'>--选择职位--</option>";
                     //将json数据插入到option中
                     for (var i = 0; i < json.length; i++) {
                         //创建一个option标签
                         option = document.createElement("option")
                         //设置value属性
-                        option.setAttribute("value", json[i].id);
+                        option.setAttribute("value", json[i].postId);
                         //创建文本
-                        text = document.createTextNode(json[i].sname)
+                        text = document.createTextNode(json[i].postName)
                         //把文本信息添加到option中
                         option.appendChild(text);
                         //把option标签添加到servers的select中
-                        serverSelect.appendChild(option);
+                        postSelect.appendChild(option);
                     }
-
-
                 }
             });
-
-            xhr.open("POST", "getServerJson.action");
-
+            xhr.open("POST", "/staff/getPostByDepId.action");
             xhr.send(data);
         }
     </script>
@@ -108,18 +104,15 @@
         <tr>
             <td width="10%">所属部门：</td>
             <td width="20%">
-
-                <select name="depId" onchange="changePost(this.value)">
+                <select name="depId" onchange="onDeptSelected(this.value)">
                     <option value="">--请选择部门--</option>
-
                     <s:iterator value="departments" var="dept">
                         <option value="${dept.depId}">${dept.depName}</option>
                     </s:iterator>
-
                 </select></td>
             <td width="8%">职务：</td>
             <td width="62%">
-                <select name="crmPost_postId" id="postSelectId">
+                <select name="postId" id="postSelectId">
                     <option value="">--请选择职务--</option>
                 </select>
             </td>
